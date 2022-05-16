@@ -18,7 +18,7 @@ function Login({ providers }) {
   };
   return (
     <div className="flex flex-col items-center pt-48">
-      <Particles
+            <Particles
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
@@ -95,6 +95,7 @@ function Login({ providers }) {
         detectRetina: true,
       }}
     />
+      <title>Monotone</title>
       <h1 className="text-white text-5xl mb-3">Monotone</h1>
       <h1 className="text-white mb-10">Alpha v1.0.0</h1>
       <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"></link>

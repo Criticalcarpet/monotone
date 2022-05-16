@@ -1,8 +1,12 @@
+import {
+  ThumbDownIcon,
+  ThumbUpIcon
+} from "@heroicons/react/outline";
 import Moment from "react-moment";
 
 function Comment({ comment }) {
   return (
-    <div className="p-6 flex cursor-pointer border-b-2 border-[#252525]">
+    <div className="p-3 flex cursor-pointer border-b-2 border-gray border-[#252525]">
       <img
         src={comment?.userImg}
         alt=""
@@ -23,15 +27,21 @@ function Comment({ comment }) {
             <span className="hover:underline text-sm sm:text-[15px]">
               <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
             </span>
-            <p className="text-[#d9d9d9] mt-0.5 max-w-lg overflow-hidden text-[15px] sm:text-base">
+            <p className="text-[#d9d9d9] mt-0.5 max-w-lg text-[15px] mb-2 sm:text-base">
               {comment?.comment}
             </p>
           </div>
+          <div className="stacked">
+          <div className="icon group flex-shrink-0">
+            <ThumbUpIcon className="h-5 text-[#6e767d] group-hover:text-[#1df07f]" />
+          </div>
+          <div className="icon group flex-shrink-0">
+            <ThumbDownIcon className="h-5 text-[#6e767d] group-hover:text-[#f03d1d]" />
+          </div>
+          </div>
         </div>
-
-        
+        </div>
       </div>
-    </div>
   );
 }
 

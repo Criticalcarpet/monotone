@@ -89,7 +89,7 @@ function Input() {
           />
 
           {selectedFile && (
-            <div className="relative">
+            <div className="relative mt-5">
               <div
                 className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer"
                 onClick={() => setSelectedFile(null)}
@@ -121,7 +121,7 @@ function Input() {
               </div>
             </div>
             <button
-              className="bg-[#fff] text-black rounded-sm cursor-pointer px-4 py-1.5 shadow-md hover:bg-[#111] hover:text-white transition disabled:hover:bg-[#111] disabled:opacity-50 disabled:cursor-pointer"
+              className="bg-[#fff] text-black rounded-sm cursor-pointer px-4 py-1.5 shadow-md hover:bg-[#111] hover:text-white transition disabled:hover:bg-[#eb5a55] disabled:hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={!input && !selectedFile}
               onClick={sendPost}
             >

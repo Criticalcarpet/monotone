@@ -11,6 +11,7 @@ import {
   AnnotationIcon,
   ArrowsExpandIcon,
   HeartIcon,
+  PencilAltIcon,
   ShieldExclamationIcon,
   TrashIcon,
 } from "@heroicons/react/outline";
@@ -75,7 +76,7 @@ function Post({ id, post, postPage }) {
 
   return (
     <div
-      className="p-3 flex cursor-pointer break-all border-b-4 marker:mt-2 border-[#252525]"
+      className="p-3 max-w-[1000px] flex cursor-pointer break-all border-b-4 marker:mt-2 border-[#252525]"
       onClick={() => router.push(`/${id}`)}
     >
       {!postPage && (
@@ -143,13 +144,8 @@ function Post({ id, post, postPage }) {
           >
             <h1 className="invisible">............</h1>
             <div className="icon">
-              <AnnotationIcon className="h-5 transition hover:text-[#1d9bf0]" />
+              <PencilAltIcon className="h-5 transition hover:text-[#1d9bf0]" />
             </div>
-            {comments.length > 0 && (
-              <span className="text-sm">
-                {comments.length}
-              </span>
-            )} 
           </div>
           <a className="ml-5" href="mailto:arctycstudios@gmail.com?subject=&body=#Hi, please post the name and profile picture of the person you would like to report, with a suitable reason. We will get back to you.">
             <ShieldExclamationIcon className="cursor-pointer hover:text-[#cc8143] mb-3 transition mt-3 h-6 text-[#fff] mr-3" />
@@ -171,8 +167,13 @@ function Post({ id, post, postPage }) {
           ) : (
             <div className="flex items-center space-x-1 group">
               <div className="icon">
-                <ArrowsExpandIcon className="h-5 transition group-hover:text-green-500" />
+                <AnnotationIcon className="h-5 transition group-hover:text-green-500" />
               </div>
+              {comments.length > 0 && (
+              <span className="text-sm">
+                {comments.length}
+              </span>
+            )} 
             </div>
           )}
 
