@@ -1,7 +1,7 @@
 export default async function reportAPI(req, res) {
   try {
     let params = {
-      username: "Contact Form Notif",
+      username: "Monotone Report",
       avatar_url: "",
       content: JSON.stringify(req.body)
     };
