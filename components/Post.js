@@ -74,6 +74,19 @@ function Post({ id, post, postPage }) {
     }
   };
 
+  const reportPost = async (id) => {
+    return await fetch ('/api/report', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: id,
+        type: 'post'
+      })
+    })
+  }
+
   return (
     <div
       className="p-3 max-w-[1000px] flex cursor-pointer break-all border-b-4 marker:mt-2 border-[#252525]"
@@ -147,9 +160,15 @@ function Post({ id, post, postPage }) {
               <PencilAltIcon className="h-5 transition hover:text-[#1d9bf0]" />
             </div>
           </div>
-          <a className="ml-5" href="mailto:arctycstudios@gmail.com?subject=&body=#Hi, please post the name and profile picture of the person you would like to report, with a suitable reason. We will get back to you.">
-            <ShieldExclamationIcon className="cursor-pointer hover:text-[#cc8143] mb-3 transition mt-3 h-6 text-[#fff] mr-3" />
-          </a>
+            <ShieldExclamationIcon className="cursor-pointer hover:text-[#cc8143] mb-3 transition mt-3 h-6 text-[#fff] mr-3" onClick={async (e) => {
+              const history = localStorage.getItem(`reported/${id}`)
+              if (history) {
+                return alert('You have already reported this post')
+              }
+              await reportPost(id)
+              alert('Your report has been sent to the moderators')
+              localStorage.setItem(`reported/${id}`, 'true')
+            }}/>
 
           {session.user.uid === post?.id ? (
             <div
